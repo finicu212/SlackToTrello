@@ -70,6 +70,14 @@ app.message(":trello:LIST", async ({ message, say }) => {
   });
 });
 
+app.message(":trello:HELP", async ({ message, say }) => {
+  help = ":trello:ADD -t <title> -d <desc>\n"
+  help += ":trello:REMOVE -t <title>\n"
+  help += ":trello:LIST\n"
+  help += ":trello:HELP"
+  await say(help)
+});
+
 (async () => {
   await app.start(process.env.PORT || 3000);
   console.log(`⚡️ Bolt app is running on port: ${process.env.PORT}`);
